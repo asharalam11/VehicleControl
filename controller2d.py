@@ -42,7 +42,7 @@ class Controller2D(object):
         self.throttle_brake_pid.setSampleTime = 0.033
 
         ## Pure Pursuit
-        self.pp                  = PP(L=4.5, k_pp=0.2)
+        self.pp                  = PP(L=4.5, k_pp=1.3)
 
 
     def update_values(self, x, y, yaw, speed, timestamp, frame):

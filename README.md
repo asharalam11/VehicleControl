@@ -37,6 +37,8 @@ Let's review its performance under different gain values
   * Less accurately tracks curved paths
   * *smooth* on discontinuous track (e.g., lane change)
 
+  ![Oscillating Pure Pursuit](/img/pp_k_big.gif)
+
 #### PERFORMANCE
 
 | Path         | Small k                                      | Large k                                                    |
