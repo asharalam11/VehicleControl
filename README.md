@@ -28,6 +28,7 @@ Let's review its performance under different gain values
   * More accurately tracks *curved* paths
   * *oscillating* on discontinuous track (e.g., lane change)
   Here you can see the car oscillating during a lane change for a very small *k = 0.2*
+    * This happens as the controller is better suited to tracking curved paths as it is assumed in its derivation.
 
   ![Oscillating Pure Pursuit](/img/pp_k_small.gif)
 
@@ -35,6 +36,16 @@ Let's review its performance under different gain values
 2. __*large* k__
   * Less accurately tracks curved paths
   * *smooth* on discontinuous track (e.g., lane change)
+
+#### PERFORMANCE
+
+| Path         | Small k                                      | Large k                                                    |
+|--------------|----------------------------------------------|------------------------------------------------------------|
+| Discontinous | <span style="color:red">Oscillatory</span>   :thumbsdown:                                | <span style="color:green">Smooth :thumbsup:</span>                                                    |
+| Curved       | <span style="color:green">Smooth :thumbsup:</span>                                       | <span style="color:red">Oscillatory</span> :thumbsdown:                                               |
+| Tracking Accuracy | :heavy_check_mark: | :heavy_multiplication_x: |
+| Stability        | :heavy_multiplication_x: | :heavy_check_mark: |
+| Reason       | Better tracks curved paths as per derivation | Large k leads to frequent steering changes for curved path |
 
 <!--
 Say what the step will be
