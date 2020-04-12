@@ -272,6 +272,7 @@ class Controller2D(object):
 
 
             #### PURE PURSUIT ####
+
             steer_output = self.pp.update(coeffs,v)
 
             print("speed Err: ", speed_err)

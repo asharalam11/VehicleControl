@@ -19,7 +19,7 @@ class PP(object):
             steering_angle = 0.0
         else:
             # Lookahead distance is proportional to velocity and proportional to lookahead gain
-            Ld_x = self.k_Ld * velocity
+            Ld_x = self.K_PP * velocity
             cte = np.polyval(coeffs, Ld_x)
             sin_alpha = cte/Ld_x
             steering_angle = np.arctan((2*self.L* sin_alpha) / (self.K_PP * velocity))
