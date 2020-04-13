@@ -10,6 +10,7 @@ import numpy as np
 from mpc_nlopt import MPC
 from pid import PID
 from pure_pursuit import PP
+from stanley import STANLEY
 
 
 class Controller2D(object):
@@ -43,6 +44,7 @@ class Controller2D(object):
 
         ## Pure Pursuit
         self.pp                  = PP(L=4.5, k_pp=1.3)
+        self.stanley             = STANLEY(L = 4.5, k = 4, k_soft = 1)
 
 
     def update_values(self, x, y, yaw, speed, timestamp, frame):
@@ -273,7 +275,11 @@ class Controller2D(object):
 
             #### PURE PURSUIT ####
 
-            steer_output = self.pp.update(coeffs,v)
+            #steer_output = self.pp.update(coeffs,v)
+
+            #### STANLEY ####
+
+            steer_output = self.stanley.update(v, cte, yaw_err)
 
             print("speed Err: ", speed_err)
             print("cte : ", cte)
